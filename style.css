@@ -435,6 +435,8 @@ FOOD INFO
     box-shadow: 0 0 10px 1005px rgba(0, 0, 0, 0.5);
     opacity: 100%;
     z-index: 10;
+    overflow-y: auto;
+    max-height: calc(100vh - 30px);
 }
 
 .food-info__close {
@@ -473,7 +475,7 @@ FOOD INFO
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 20px 20px 0px;
+    margin: 20px 20px 15px;
 
     padding-top: 15px;
     border-width: 2px 0px 0px;

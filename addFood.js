@@ -266,73 +266,75 @@ function addFoodToDOM(allFood) {
 }
 
 function showFoodInfo(allFood) {
-    const existingFoodInfoContainer = document.querySelector(".food-info");
+    let foodInfoContainer = document.querySelector(".food-info");
 
-    if (!existingFoodInfoContainer) {
-        const foodInfoContainer = document.createElement("div")
-        foodInfoContainer.classList.add("food-info")
-        foodInfoContainer.classList.add("display")
-        body.appendChild(foodInfoContainer)
+    if (!foodInfoContainer) {
+        foodInfoContainer = document.createElement("div");
+        foodInfoContainer.classList.add("food-info", "display");
+        body.appendChild(foodInfoContainer);
 
-        const foodInfoTitle = document.createElement("h4")
-        foodInfoTitle.classList.add("food-info__title")
-        foodInfoTitle.innerHTML = allFood.title
-        foodInfoContainer.appendChild(foodInfoTitle)
-
-        const foodInfoIngredients = document.createElement("ul")
-        foodInfoIngredients.classList.add("food-info__ingredients")
-        foodInfoContainer.appendChild(foodInfoIngredients)
-
-        allFood.ingredients.forEach(ingredient => {
-            const foodInfoIngredient = document.createElement("li")
-            foodInfoIngredient.classList.add("food-info__ingredient")
-            foodInfoIngredient.innerHTML = ingredient
-            foodInfoIngredients.appendChild(foodInfoIngredient)
-        })
-
-        const foodInfoBtnContainer = document.createElement("div")
-        foodInfoBtnContainer.classList.add("food-info__btn-container")
-        foodInfoContainer.appendChild(foodInfoBtnContainer)
-
-        const foodInfoDeleteBtn = document.createElement("button")
-        foodInfoDeleteBtn.classList.add("food-info__delete-btn")
-        foodInfoDeleteBtn.innerHTML = "Remove Food"
-        foodInfoBtnContainer.appendChild(foodInfoDeleteBtn)
-        foodInfoDeleteBtn.addEventListener(
-            "click",
-            () => {
-                deleteFood(allFood)
-            }
-        )
-
-        const foodInfoAddShopping = document.createElement("button")
-        foodInfoAddShopping.classList.add("food-info__add-shopping")
-        foodInfoAddShopping.innerHTML = "Add To Shooping List"
-        foodInfoBtnContainer.appendChild(foodInfoAddShopping)
-        foodInfoAddShopping.addEventListener(
-            "click",
-            () => {
-                addItemToDOM(allFood.ingredients)
-                countItemsLeft()
-                foodInfoContainer.classList.remove("display")
-            }
-        )
-
-        const foodInfoClose = document.createElement("span")
-        foodInfoClose.classList.add("food-info__close")
+        const foodInfoClose = document.createElement("span");
+        foodInfoClose.classList.add("food-info__close");
         foodInfoClose.innerHTML = "\u00d7";
-        foodInfoContainer.insertBefore(foodInfoClose, foodInfoContainer.children[0]);
+        foodInfoContainer.appendChild(foodInfoClose);
 
-        foodInfoClose.addEventListener(
-            "click",
-            () => {
-                foodInfoContainer.classList.remove("display")
-            })
+        foodInfoClose.addEventListener("click", () => {
+            foodInfoContainer.classList.remove("display");
+        });
     }
-    else {
-        existingFoodInfoContainer.classList.add("display");
-    }
+
+    foodInfoContainer.innerHTML = "";
+
+    const foodInfoClose = document.createElement("span");
+    foodInfoClose.classList.add("food-info__close");
+    foodInfoClose.innerHTML = "\u00d7";
+    foodInfoContainer.appendChild(foodInfoClose);
+
+    const foodInfoTitle = document.createElement("h4");
+    foodInfoTitle.classList.add("food-info__title");
+    foodInfoTitle.innerHTML = allFood.title;
+    foodInfoContainer.appendChild(foodInfoTitle);
+
+    const foodInfoIngredients = document.createElement("ul");
+    foodInfoIngredients.classList.add("food-info__ingredients");
+    foodInfoContainer.appendChild(foodInfoIngredients);
+
+    allFood.ingredients.forEach((ingredient) => {
+        const foodInfoIngredient = document.createElement("li");
+        foodInfoIngredient.classList.add("food-info__ingredient");
+        foodInfoIngredient.innerHTML = ingredient;
+        foodInfoIngredients.appendChild(foodInfoIngredient);
+    });
+
+    const foodInfoBtnContainer = document.createElement("div");
+    foodInfoBtnContainer.classList.add("food-info__btn-container");
+    foodInfoContainer.appendChild(foodInfoBtnContainer);
+
+    const foodInfoDeleteBtn = document.createElement("button");
+    foodInfoDeleteBtn.classList.add("food-info__delete-btn");
+    foodInfoDeleteBtn.innerHTML = "Remove Food";
+    foodInfoBtnContainer.appendChild(foodInfoDeleteBtn);
+    foodInfoDeleteBtn.addEventListener("click", () => {
+        deleteFood(allFood);
+    });
+
+    const foodInfoAddShopping = document.createElement("button");
+    foodInfoAddShopping.classList.add("food-info__add-shopping");
+    foodInfoAddShopping.innerHTML = "Add To Shopping List";
+    foodInfoBtnContainer.appendChild(foodInfoAddShopping);
+    foodInfoAddShopping.addEventListener("click", () => {
+        addItemToDOM(allFood.ingredients);
+        countItemsLeft();
+        foodInfoContainer.classList.remove("display");
+    });
+
+    foodInfoClose.addEventListener("click", () => {
+        foodInfoContainer.classList.remove("display");
+    });
+
+    foodInfoContainer.classList.add("display");
 }
+
 
 function deleteFood(allFood) {
     const foodIndex = allFoodArray.findIndex(food => food.id === allFood.id);
