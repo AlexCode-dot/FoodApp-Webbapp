@@ -249,8 +249,6 @@ YOUR FOOD
     padding: 0px;
 }
 
-.food__ingredient {}
-
 
 
 
@@ -263,14 +261,16 @@ ADD FOOD
     display: none;
     position: fixed;
     background-color: #fff8e7;
-    top: 130px;
-    bottom: 130px;
+    top: 30px;
+    bottom: 30px;
     right: 30px;
     left: 30px;
     border-radius: 30px;
     box-shadow: 0 0 10px 1005px rgba(0, 0, 0, 0.5);
     opacity: 100%;
     z-index: 10;
+    overflow-y: auto;
+    max-height: calc(100vh - 30px);
 }
 
 .add-food__container {
@@ -322,8 +322,6 @@ ADD FOOD
 
 .add-food__type-container {
     display: none;
-    overflow-y: auto;
-    max-height: calc(100vh - 270px);
 }
 
 .add-food__title-type {
@@ -429,16 +427,14 @@ FOOD INFO
     display: none;
     position: fixed;
     background-color: #FFC0CB;
-    top: 130px;
-    bottom: 130px;
+    top: 30px;
+    bottom: 30px;
     right: 30px;
     left: 30px;
     border-radius: 30px;
     box-shadow: 0 0 10px 1005px rgba(0, 0, 0, 0.5);
     opacity: 100%;
     z-index: 10;
-    overflow-y: auto;
-    max-height: calc(100vh - 270px);
 }
 
 .food-info__close {
@@ -492,6 +488,7 @@ FOOD INFO
     background-color: #fff8e7;
     font-size: 17px;
     font-weight: bold;
+    color: black;
 }
 
 .food-info__add-shopping {
@@ -501,6 +498,7 @@ FOOD INFO
     background-color: #fff8e7;
     font-size: 17px;
     font-weight: bold;
+    color: black;
 }
 
 
