@@ -135,6 +135,7 @@ function addFoodType(foodType, wrapper) {
 
         const addFoodTitleInput = document.createElement("input")
         addFoodTitleInput.classList.add("add-food__title-input")
+        addFoodTitleInput.classList.add("input")
         addFoodTitleInput.setAttribute("placeholder", `${foodType}...`)
         addFoodTypeContainer.appendChild(addFoodTitleInput)
 
@@ -151,6 +152,7 @@ function addFoodType(foodType, wrapper) {
             () => {
                 const addFoodIngredientsInput = document.createElement("input")
                 addFoodIngredientsInput.classList.add("add-food__ingredients-input")
+                addFoodIngredientsInput.classList.add("input")
                 addFoodIngredientsInput.setAttribute("placeholder", "Add ingredient...")
                 addFoodTypeContainer.insertBefore(addFoodIngredientsInput, addFoodIngredientsBtn);
 

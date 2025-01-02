@@ -60,3 +60,15 @@ window.addEventListener('scroll', () => {
     button.classList.remove('add-food__btn--fixed');
   }
 });
+
+const inputs = document.querySelectorAll('.input');
+
+inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+        document.body.style.zoom = '1'; // Adjust zoom level to prevent auto zoom
+    });
+
+    input.addEventListener('blur', () => {
+        document.body.style.zoom = ''; // Reset zoom level
+    });
+});
