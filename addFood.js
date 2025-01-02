@@ -249,7 +249,6 @@ function addFoodToDOM(allFood) {
 
     const food = document.createElement("div")
     food.classList.add("food")
-    food.classList.add(allFood.title)
     yourFoodContainer.appendChild(food)
     food.setAttribute("id", allFood.id)
 

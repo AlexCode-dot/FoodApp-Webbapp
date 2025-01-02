@@ -72,3 +72,20 @@ inputs.forEach(input => {
         document.body.style.zoom = ''; // Reset zoom level
     });
 });
+
+
+
+//CLEAR LOCAL STORAGE
+
+function clearLocalStorage() {
+    localStorage.removeItem("allFoodArray");
+
+    allFoodArray.length = 0;
+
+    const yourFoodContainer = document.querySelector(".your-food__container");
+    while (yourFoodContainer.firstChild) {
+        yourFoodContainer.removeChild(yourFoodContainer.firstChild);
+    }
+
+    console.log("Local storage and in-memory data cleared.");
+}
