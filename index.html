@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <h1 class="header__logo-title">FoodApp</h1>
+        </div>
+        <nav class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item header__menu-item--first">Your Food</li>
+                <li class="header__menu-item header__menu-item--second">Shopping List</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="info">
+            <h2 class="info__title">Welcome to FoodApp</h2>
+        </div>
+        <div class="your-food">
+            <div class="your-food__filter">
+                <label class="your-food__filter-label" for="search">Search food</label>
+                <input class="your-food__filter-input" type="text" maxlength="60" name="search"
+                    placeholder="Search..." />
+                <ul class="your-food__filter-list">
+                    <li class="your-food__filter-btn">Breakfast</li>
+                    <li class="your-food__filter-btn">Lunch</li>
+                    <li class="your-food__filter-btn">Dinner</li>
+                    <li class="your-food__filter-btn">Snack</li>
+                </ul>
+            </div>
+            <div class="your-food__container"></div>
+            <div class="add-food__btn__container">
+                <button class="add-food__btn" type="button">Add Food</button>
+            </div>
+        </div>
+        <div class="shopping-list">
+            <div class="shopping-list__container">
+                <h2 class="shopping-list__title">Shopping List</h2>
+                <div class="shopping-list__input-container">
+                    <input type="text" class="shopping-list__input" placeholder="Add your item...">
+                    <button type="button" class="shopping-list-add">Add</button>
+                </div>
+                <ul class="shopping-list__item-container">
+                </ul>
+            </div>
+            <div class="shopping-list__result-box">
+                <p class="shopping-list__item-text">Items left to buy</p>
+                <span class="shopping-list__item-count">0</span>
+            </div>
+        </div> 
+    </main>
+
+    <script src="main.js"></script>
+    <script src="addFood.js"></script>
+    <script src="shopping-list.js"></script>
+    <script src="filter.js"></script>
+</body>
+
+</html>
