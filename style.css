@@ -86,6 +86,50 @@ INFO
 
 .info {
     display: none;
+    color: #fff8e7;
+    text-align: left;
+    margin: 50px 15px 30px;
+}
+
+.info__title {
+    text-align: center;
+    font-size: 40px;
+}
+
+.info__text-start {
+    font-size: 23px;
+    text-align: center;
+}
+
+.info__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+    font-size: 18px;
+    padding-left: 0px;
+    list-style: none;
+    margin-top: 50px;
+}
+
+.info__list-item-start {
+    font-weight: bold;
+}
+
+.info__list-item-end {
+    font-weight: lighter;
+    margin-left: 0px;
+    margin-top: 5px;
+    border-color: #fff8e7;
+    border-width: 1px 0px 0px;
+    border-style: solid;
+    padding-top: 10px;
+}
+
+.info__text-end {
+    margin-top: 50px;
+    font-size: 23px;
+    text-align: center;
 }
 
 

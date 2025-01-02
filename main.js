@@ -29,6 +29,18 @@ shoppingListBtn.addEventListener(
     }
 )
 
+document.querySelector(".header__logo-title").addEventListener(
+    "click",
+    () => {
+        info.classList.add("display")
+        yourFood.classList.remove("display")
+        shoppingList.classList.remove("display")
+
+        shoppingListBtn.classList.remove("active-btn")
+        yourFoodBtn.classList.remove("active-btn")
+    }
+)
+
 
 
 
