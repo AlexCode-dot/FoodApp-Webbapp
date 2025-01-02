@@ -233,15 +233,30 @@ YOUR FOOD
 }
 
 .food {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
     border-radius: 20px;
     background-color: #FFC0CB;
-    padding: 30px 10px;
+    width: 175px; 
+    height: 156px; 
+    box-sizing: border-box;
+    padding: 10px; 
+    overflow: hidden; 
 }
 
 .food__title {
-    font-size: 25px;
+    font-size: 24px;
     color: #4B6F44;
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: wrap; 
 }
+
 
 .food__ingredients {
     display: none;
