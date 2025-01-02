@@ -52,6 +52,7 @@ shoppingListItemContainer.addEventListener("click", function(e)
     if (e.target.tagName === "LI")
         {
             e.target.classList.toggle("checked");
+            reorderShoppingList()
             countItemsLeft()
             saveShoppingListToLocalStorage();
         }
@@ -62,6 +63,17 @@ shoppingListItemContainer.addEventListener("click", function(e)
             saveShoppingListToLocalStorage();
         }
 });
+
+
+function reorderShoppingList() {
+    const items = Array.from(document.querySelectorAll(".shopping-list__item"));
+    const checkedItems = items.filter(item => item.classList.contains("checked"));
+    const uncheckedItems = items.filter(item => !item.classList.contains("checked"));
+
+    shoppingListItemContainer.innerHTML = "";
+    [...checkedItems, ...uncheckedItems].forEach(item => shoppingListItemContainer.appendChild(item));
+}
+
 
 function countItemsLeft() {
     const itemsCounter = document.querySelector(".shopping-list__item-count")
