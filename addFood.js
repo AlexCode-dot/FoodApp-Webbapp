@@ -285,6 +285,75 @@ function showFoodInfo(allFood) {
 
     foodInfoContainer.innerHTML = "";
 
+    const foodInfoEdit = document.createElement("span");
+    foodInfoEdit.classList.add("food-info__edit");
+    foodInfoEdit.innerHTML = "Edit";
+    foodInfoContainer.appendChild(foodInfoEdit);
+    foodInfoEdit.addEventListener(
+        "click",
+        () => {
+            if (!foodInfoEdit.classList.contains("activated-edit")) {
+    
+                foodInfoEdit.classList.add("activated-edit")
+                foodInfoIngredients.innerHTML = "";
+                allFood.ingredients.forEach((ingredient) => {
+                    const ingredientInput = document.createElement("input");
+                    ingredientInput.classList.add("food-info__ingredient-input");
+                    ingredientInput.value = ingredient;
+                    foodInfoIngredients.appendChild(ingredientInput);
+
+                })
+
+                const editBtnsContainer = document.createElement("div")
+                editBtnsContainer.classList.add("food-info__edit-btns-container")
+                foodInfoContainer.insertBefore(editBtnsContainer, foodInfoIngredients);
+
+                const addIngredientBtn = document.createElement("button");
+                addIngredientBtn.classList.add("food-info__add-ingredient-btn");
+                addIngredientBtn.innerHTML = "Add";
+                editBtnsContainer.appendChild(addIngredientBtn)
+
+                addIngredientBtn.addEventListener("click", () => {
+                    const newIngredientInput = document.createElement("input");
+                    newIngredientInput.classList.add("food-info__ingredient-input", "input");
+                    newIngredientInput.setAttribute("placeholder", "New Ingredient...");
+                    foodInfoIngredients.appendChild(newIngredientInput);
+                });
+
+                const saveIngredientsBtn = document.createElement("button");
+                saveIngredientsBtn.classList.add("food-info__save-ingredients-btn");
+                saveIngredientsBtn.innerHTML = "Save";
+                editBtnsContainer.appendChild(saveIngredientsBtn)
+
+                saveIngredientsBtn.addEventListener("click", () => {
+                    const updatedIngredients = Array.from(
+                        foodInfoIngredients.querySelectorAll(".food-info__ingredient-input")
+                    ).map(input => input.value.trim()).filter(input => input !== "");
+
+                    // Update food object and DOM
+                    allFood.ingredients = updatedIngredients;
+                    localStorage.setItem("allFoodArray", JSON.stringify(allFoodArray));
+
+                    // Re-render ingredient list
+                    foodInfoIngredients.innerHTML = "";
+                    allFood.ingredients.forEach((ingredient) => {
+                        const foodInfoIngredient = document.createElement("li");
+                        foodInfoIngredient.classList.add("food-info__ingredient");
+                        foodInfoIngredient.innerHTML = ingredient;
+                        foodInfoIngredients.appendChild(foodInfoIngredient);
+                    });
+
+                    foodInfoEdit.classList.remove("activated-edit")
+                    addIngredientBtn.remove();
+                    saveIngredientsBtn.remove();
+                    editBtnsContainer.remove();
+                });
+            }
+            else {
+                console.log("hej")
+            }
+        });
+
     const foodInfoClose = document.createElement("span");
     foodInfoClose.classList.add("food-info__close");
     foodInfoClose.innerHTML = "\u00d7";

@@ -39,7 +39,7 @@ function applyFilters() {
         const matchesTags = currentFilters.types.length === 0 || currentFilters.types.includes(allFoodArray[i].type);
 
         if (matchesSearch && matchesTags) {
-            food.style.display = "block";
+            food.style.display = "flex";
         } else {
             food.style.display = "none";
         }

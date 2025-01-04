@@ -462,6 +462,58 @@ FOOD INFO
     color: black;
 }
 
+.food-info__edit {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff8e7;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.food-info__edit-btns-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.food-info__add-ingredient-btn {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff8e7;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.food-info__save-ingredients-btn {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff8e7;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.food-info__ingredient-input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 30px;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+    background-color: #fff8e7;
+}
+
 .food-info__title {
     text-align: center;
     margin: 75px 20px 0px;
@@ -680,6 +732,14 @@ CLASSES
 .activated {
     background-color: #FFC0CB;
     color: #4B6F44;
+}
+
+.activated-edit {
+    background-color: #FFC0CB;
+    color: #fff8e7;
+    border-color: #fff8e7;
+    border-width: 2px;
+    border-style: solid;
 }
 
 
