@@ -1,3 +1,3 @@
 FoodApp
 
-Information:
+Information: Added GPG key
